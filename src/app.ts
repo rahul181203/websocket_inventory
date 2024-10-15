@@ -18,7 +18,7 @@ const expressServer = app.listen("9000",()=>{
     
 })
 
-export const io = new Server(expressServer,{cors:{origin:"https://inventory.rahul1812.tech/"}}) 
+export const io = new Server(expressServer,{cors:{origin:"https://inventory.rahul1812.tech/",methods:["GET","POST"]}}) 
 
 io.on("connection",(socket)=>{
     console.log("user connected",socket.id);
