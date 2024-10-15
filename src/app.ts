@@ -1,6 +1,5 @@
 import express,{Request,Response,NextFunction} from 'express';
 import {Server} from "socket.io"
-const http = require("http")
 import {json} from "body-parser"
 import dotenv from "dotenv"
 import { GetReply } from '../services';
@@ -9,6 +8,9 @@ const app = express()
 dotenv.config()
 app.use(json())
 
+app.get('/',(req:Request,res:Response,next:NextFunction)=>{
+    res.status(200).json({msg:"running succesfully"});
+})
 
 
 const expressServer = app.listen("9000",()=>{
