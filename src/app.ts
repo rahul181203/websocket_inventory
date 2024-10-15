@@ -8,8 +8,15 @@ import { GetReply } from '../services';
 const app = express()
 dotenv.config()
 app.use(json())
-const server = http.createServer(app)
-const io = new Server({cors:{origin:["http://localhost:3000","https://inventory.rahul1812.tech","https://smartphoneservice.vercel.app"]}}) 
+
+
+
+const expressServer = app.listen("9000",()=>{
+    console.log("listing on 9000");
+    
+})
+
+const io = new Server(expressServer,{cors:{origin:["http://localhost:3000","https://inventory.rahul1812.tech","https://smartphoneservice.vercel.app"]}}) 
 
 io.on("connection",(socket)=>{
     console.log("user connected",socket.id);
@@ -22,5 +29,3 @@ io.on("connection",(socket)=>{
     })
 
 })
-
-io.listen(9000)
