@@ -1,3 +1,3 @@
-import {app} from "../src/app"
+import {app,io} from "../src/app"
 
-export default app
+module.exports = app,io
