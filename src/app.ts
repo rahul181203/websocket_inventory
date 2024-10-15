@@ -9,7 +9,7 @@ const app = express()
 dotenv.config()
 app.use(json())
 const server = http.createServer(app)
-const io = new Server({cors:{origin:"http://localhost:3000"}}) 
+const io = new Server({cors:{origin:["http://localhost:3000","https://inventory.rahul1812.tech","https://smartphoneservice.vercel.app"]}}) 
 
 io.on("connection",(socket)=>{
     console.log("user connected",socket.id);
