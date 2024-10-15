@@ -4,7 +4,7 @@ import {json} from "body-parser"
 import dotenv from "dotenv"
 import { GetReply } from '../services';
 
-const app = express()
+export const app = express()
 dotenv.config()
 app.use(json())
 
