@@ -22,7 +22,7 @@ const expressServer = app.listen(port,()=>{
 
 export const io = new Server(expressServer,{
     cors:{
-        origin:["https://inventory.rahul1812.tech","http://localhost:3000","https://smartphoneservice.vercel.app/"],
+        origin:["https://inventory.rahul1812.tech","http://localhost:3000","https://smartphoneservice.vercel.app"],
     },
 }) 
 
