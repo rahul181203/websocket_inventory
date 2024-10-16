@@ -23,9 +23,8 @@ const expressServer = app.listen("9000",()=>{
 })
 
 export const io = new Server(expressServer,{
-    path:"/socket.io",
     cors:{
-        origin:["http://localhost:3000","https://inventory.rahul1812.tech/","https://smartphoneservice.vercel.app/"],
+        origin:["*"],
         methods:["GET","POST"],
         allowedHeaders:["Content-Type","Access-Control-Allow-Origin"]
     },
