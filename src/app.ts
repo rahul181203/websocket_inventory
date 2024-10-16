@@ -20,10 +20,10 @@ app.get('/',(req:Request,res:Response,next:NextFunction)=>{
 
 const expressServer = app.listen("9000",()=>{
     console.log("listing on 9000");
-    
 })
 
 export const io = new Server(expressServer,{
+    path:"/socket.io",
     cors:{
         origin:["http://localhost:3000","https://inventory.rahul1812.tech/","https://smartphoneservice.vercel.app/"],
         methods:["GET","POST"],
