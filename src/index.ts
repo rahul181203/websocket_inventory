@@ -3,7 +3,7 @@ import {Server} from "socket.io"
 import {json} from "body-parser"
 import dotenv from "dotenv"
 import { GetReply } from '../services';
-import cors from "cors"
+// import cors from "cors"
 
 export const app = express()
 dotenv.config()
@@ -14,21 +14,16 @@ app.get('/',(req:Request,res:Response,next:NextFunction)=>{
     res.status(200).json({msg:"running succesfully"});
 })
 
+const port = process.env.PORT || 9000
 
-const expressServer = app.listen("9000",()=>{
-    console.log("listing on 9000");
+const expressServer = app.listen(port,()=>{
+    console.log(`listing on ${port}`);
 })
 
 export const io = new Server(expressServer,{
     cors:{
-        origin:["https://inventory.rahul1812.tech"],
-        methods:["GET","POST"],
-        allowedHeaders:["Content-Type","Access-Control-Allow-Origin"]
+        origin:["https://inventory.rahul1812.tech","http://localhost:3000","https://smartphoneservice.vercel.app/"],
     },
-    serveClient:false,
-    pingInterval:10000,
-    pingTimeout:5000,
-    cookie:false
 }) 
 
 io.on("connection",(socket)=>{
