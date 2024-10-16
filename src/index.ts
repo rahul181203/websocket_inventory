@@ -8,10 +8,7 @@ import cors from "cors"
 export const app = express()
 dotenv.config()
 app.use(json())
-app.use(cors({
-    origin:"*",
-    methods:["GET","POST"]
-}))
+
 
 app.get('/',(req:Request,res:Response,next:NextFunction)=>{
     res.status(200).json({msg:"running succesfully"});
@@ -24,7 +21,7 @@ const expressServer = app.listen("9000",()=>{
 
 export const io = new Server(expressServer,{
     cors:{
-        origin:["*"],
+        origin:["https://inventory.rahul1812.tech"],
         methods:["GET","POST"],
         allowedHeaders:["Content-Type","Access-Control-Allow-Origin"]
     },
