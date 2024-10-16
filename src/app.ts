@@ -8,7 +8,10 @@ import cors from "cors"
 export const app = express()
 dotenv.config()
 app.use(json())
-app.use(cors())
+app.use(cors({
+    origin:"*",
+    methods:["GET","POST"]
+}))
 
 app.get('/',(req:Request,res:Response,next:NextFunction)=>{
     res.status(200).json({msg:"running succesfully"});
@@ -22,10 +25,14 @@ const expressServer = app.listen("9000",()=>{
 
 export const io = new Server(expressServer,{
     cors:{
-        origin:["*"],
+        origin:["http://localhost:3000","https://inventory.rahul1812.tech/","https://smartphoneservice.vercel.app/"],
         methods:["GET","POST"],
-        credentials:true,
-    }
+        allowedHeaders:["Content-Type","Access-Control-Allow-Origin"]
+    },
+    serveClient:false,
+    pingInterval:10000,
+    pingTimeout:5000,
+    cookie:false
 }) 
 
 io.on("connection",(socket)=>{
