@@ -22,7 +22,9 @@ const expressServer = app.listen("9000",()=>{
 
 export const io = new Server(expressServer,{
     cors:{
-        origin:["http://localhost:3000","https://inventory.rahul1812.tech/","https://smartphoneservice.vercel.app/"],
+        origin:["*"],
+        methods:["GET","POST"],
+        credentials:true,
     }
 }) 
 
