@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.ts",
+    "dev": "nodemon src/index.ts",
     "build": "npx tsc",
-    "start": "node ./dist/src/app.js",
+    "start": "node ./dist/src/index.js",
     "vercel-build": "echo build"
   },
   "keywords": [],
