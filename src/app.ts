@@ -3,10 +3,12 @@ import {Server} from "socket.io"
 import {json} from "body-parser"
 import dotenv from "dotenv"
 import { GetReply } from '../services';
+import cors from "cors"
 
 export const app = express()
 dotenv.config()
 app.use(json())
+app.use(cors())
 
 app.get('/',(req:Request,res:Response,next:NextFunction)=>{
     res.status(200).json({msg:"running succesfully"});
